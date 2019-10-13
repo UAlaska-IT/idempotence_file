@@ -3,7 +3,6 @@
 module IdempotenceFile
   # This module implements shared utility code for consistency with dependent cookbooks
   module Public
-
   end
   module Helper
     TCB = 'idempotence_file'
