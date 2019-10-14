@@ -8,10 +8,6 @@ describe file '/tmp/before' do
   it { should be_grouped_into 'root' }
 end
 
-idempotence_file 'the first' do
-  action :delete
-end
-
 file '/tmp/empty' do
   it { should exist }
   it { should be_file }
@@ -20,14 +16,8 @@ file '/tmp/empty' do
   it { should be_grouped_into 'root' }
 end
 
-idempotence_file 'the first'
-
 file '/tmp/after' do
   it { should_not exist }
-end
-
-idempotence_file 'the first' do
-  action :delete
 end
 
 file '/tmp/deleted' do
@@ -37,8 +27,6 @@ file '/tmp/deleted' do
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
 end
-
-idempotence_file 'the first'
 
 file '/tmp/phoenix' do
   it { should_not exist }
