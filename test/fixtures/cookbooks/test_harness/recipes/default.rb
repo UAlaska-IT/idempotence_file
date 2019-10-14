@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-file '/tmp/before' do
+require 'tmpdir'
+
+temp_dir = Dir.tmpdir
+
+file File.join(temp_dir, 'before') do
   owner 'root'
   group 'root'
   mode 0o644
@@ -11,7 +15,7 @@ idempotence_file 'the first' do
   action :delete
 end
 
-file '/tmp/empty' do
+file File.join(temp_dir, 'empty') do
   owner 'root'
   group 'root'
   mode 0o644
@@ -20,7 +24,7 @@ end
 
 idempotence_file 'the first'
 
-file '/tmp/after' do
+file File.join(temp_dir, 'after') do
   owner 'root'
   group 'root'
   mode 0o644
@@ -31,7 +35,7 @@ idempotence_file 'the first' do
   action :delete
 end
 
-file '/tmp/deleted' do
+file File.join(temp_dir, 'deleted') do
   owner 'root'
   group 'root'
   mode 0o644
@@ -40,7 +44,7 @@ end
 
 idempotence_file 'the first'
 
-file '/tmp/phoenix' do
+file File.join(temp_dir, 'phoenix') do
   owner 'root'
   group 'root'
   mode 0o644

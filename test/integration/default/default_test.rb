@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-describe file '/tmp/before' do
+require 'tmpdir'
+
+temp_dir = Dir.tmpdir
+
+describe file File.join(temp_dir, 'before') do
   it { should exist }
   it { should be_file }
   it { should be_mode 0o644 }
@@ -8,7 +12,7 @@ describe file '/tmp/before' do
   it { should be_grouped_into 'root' }
 end
 
-file '/tmp/empty' do
+file File.join(temp_dir, 'empty') do
   it { should exist }
   it { should be_file }
   it { should be_mode 0o644 }
@@ -16,11 +20,11 @@ file '/tmp/empty' do
   it { should be_grouped_into 'root' }
 end
 
-file '/tmp/after' do
+file File.join(temp_dir, 'after') do
   it { should_not exist }
 end
 
-file '/tmp/deleted' do
+file File.join(temp_dir, 'deleted') do
   it { should exist }
   it { should be_file }
   it { should be_mode 0o644 }
@@ -28,7 +32,7 @@ file '/tmp/deleted' do
   it { should be_grouped_into 'root' }
 end
 
-file '/tmp/phoenix' do
+file File.join(temp_dir, 'phoenix') do
   it { should_not exist }
 end
 
