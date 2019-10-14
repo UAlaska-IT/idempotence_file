@@ -50,12 +50,3 @@ suites:
     attributes:
     includes:
       - centos-7
-  - name: windows
-    run_list:
-      - recipe[test_harness::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
-    attributes:
-    includes:
-      - windows-2019
