@@ -42,6 +42,6 @@ module IdempotenceFile
   end
 end
 
-Chef::Provider.include(IdempotenceFile::Helper)
-Chef::Recipe.include(IdempotenceFile::Helper)
-Chef::Resource.include(IdempotenceFile::Helper)
+Chef::Provider.include(IdempotenceFile::Public)
+Chef::Recipe.include(IdempotenceFile::Public)
+Chef::Resource.include(IdempotenceFile::Public)
