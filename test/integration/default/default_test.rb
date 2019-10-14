@@ -54,7 +54,7 @@ describe file '/var/chef/idempotence' do
   it { should be_grouped_into 'root' }
 end
 
-describe file '/var/chef/idempotence/the_first' do
+describe file '/var/chef/idempotence/the first' do
   it { should exist }
   it { should be_file }
   it { should be_mode 0o644 }
