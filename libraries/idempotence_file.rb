@@ -1,22 +1,21 @@
 # frozen_string_literal: true
 
 module IdempotenceFile
+  # This module implements utility code
+  I_DIRECTORY = '/var/chef/idempotence'
+
   # This module implements public interfaces that are included in client code
   module Public
     def idempotence_file?(name)
-      path = File.join(i_directory, name)
+      path = File.join(I_DIRECTORY, name)
       return File.exist?(path)
     end
   end
 
   # This module implements utility code
   module Helper
-    def i_directory
-      return '/var/chef/idempotence'
-    end
-
     def create_directory
-      directory i_directory do
+      directory I_DIRECTORY do
         owner 'root'
         group 'root'
         mode 0o755
@@ -26,7 +25,7 @@ module IdempotenceFile
 
     def create_i_file(new_resource)
       create_directory
-      file File.join(i_directory, new_resource.name) do
+      file File.join(I_DIRECTORY, new_resource.name) do
         content 'Sentinel file'
         owner 'root'
         group 'root'
@@ -35,7 +34,7 @@ module IdempotenceFile
     end
 
     def delete_i_file(new_resource)
-      file File.join(i_directory, new_resource.name) do
+      file File.join(I_DIRECTORY, new_resource.name) do
         action :delete
       end
     end
