@@ -2,6 +2,7 @@
 
 resource_name :idempotence_file
 provides :idempotence_file
+unified_mode true
 
 default_action :create
 
