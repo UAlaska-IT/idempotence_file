@@ -16,30 +16,26 @@ provisioner:
   name: chef_zero
   always_update_cookbooks: true
   product_name: chef
-  product_version: 15.3.14
+  product_version: 17.2.29
   install_strategy: once
 
 verifier:
   name: inspec
 
 platforms:
+  - name: ubuntu-20.04
   - name: ubuntu-18.04
-  - name: ubuntu-16.04
-  - name: debian-9
+  - name: debian-10
   - name: rhel-8
-  - name: centos-7
-  - name: centos-6
-  - name: oracle-7
-  - name: oracle-6
-  - name: fedora-30
-  - name: fedora-29
+  - name: rhel-7
+  - name: centos-8
+  - name: oracle-8
+  - name: fedora-33
   - name: amazon2
-  - name: amazon2-2018
   - name: sles-15
   - name: windows-2019
   - name: windows-2016
   - name: windows-2012r2
-  - name: windows-2008r2sp1
 
 suites:
   - name: debian-based
@@ -50,9 +46,9 @@ suites:
         - test/integration/default
     attributes:
     includes:
+      - ubuntu-20.04
       - ubuntu-18.04
-      - ubuntu-16.04
-      - debian-9
+      - debian-10
   - name: rhel-based
     run_list:
       - recipe[test_harness::default]
@@ -62,10 +58,9 @@ suites:
     attributes:
     includes:
       - rhel-8
-      - centos-7
-      - oracle-6
-      - fedora-30
-      - fedora-29
+      - rhel-7
+      - centos-8
+      - oracle-8
   - name: other-nix
     run_list:
       - recipe[test_harness::default]
@@ -74,8 +69,8 @@ suites:
         - test/integration/default
     attributes:
     includes:
+      - fedora-33
       - amazon2
-      - amazon2-2018
       - sles-15
   - name: windows
     run_list:
@@ -88,4 +83,3 @@ suites:
       - windows-2019
       - windows-2016
       - windows-2012r2
-      - windows-2008r2sp1
