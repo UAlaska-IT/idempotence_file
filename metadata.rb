@@ -10,7 +10,7 @@ git_url = 'https://github.com/ualaska-it/idempotence_file'
 source_url git_url
 issues_url "#{git_url}/issues"
 
-version '1.1.0'
+version '1.0.1'
 
 supports 'ubuntu', '>= 14.0'
 supports 'debian', '>= 8.0'
