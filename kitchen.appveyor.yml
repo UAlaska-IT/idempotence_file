@@ -28,7 +28,7 @@ platforms:
   - name: windows-2012r2
 
 suites:
-  - name: debian-based
+  - name: default
     run_list:
       - recipe[test_harness::default]
     verifier:
@@ -37,12 +37,4 @@ suites:
     attributes:
     includes:
       - ubuntu-20.04
-  - name: rhel-based
-    run_list:
-      - recipe[test_harness::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
-    attributes:
-    includes:
       - centos-8
