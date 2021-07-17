@@ -26,6 +26,10 @@ platforms:
   - name: ubuntu-20.04
   - name: ubuntu-18.04
   - name: debian-10
+    driver:
+      image_search:
+        owner-id: 903794441882
+        name: '*debian-10-*'
   - name: rhel-8
   - name: rhel-7
   - name: centos-8
