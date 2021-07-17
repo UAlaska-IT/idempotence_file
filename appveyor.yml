@@ -14,7 +14,8 @@ install:
     wget "${vagrant_url}" -O "${vagrant_file}"
     sudo unzip -d /usr/local/bin "${vagrant_file}"
   - |
-    sudo apt-get install make
+    sudo apt-get -y install bsdtar
+    sudo apt-get -y install make
 
 build: off
 
