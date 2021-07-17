@@ -6,3 +6,13 @@ lint:
 	chef exec rubocop
 	cookstyle .
 	cookstyle test/fixtures/cookbooks/test_harness
+
+tag:
+	chef exec ruby -r "./tag.rb" -e "tag"
+
+tag-push:
+	git push --tags
+
+share:
+	# For category see https://docs.chef.io/knife_cookbook_site.html
+	knife supermarket share idempotence_file Utilities
