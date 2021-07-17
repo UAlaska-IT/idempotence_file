@@ -14,7 +14,7 @@ install:
     wget "${vagrant_url}" -O "${vagrant_file}"
     sudo unzip -d /usr/local/bin "${vagrant_file}"
   - |
-    sudo apt-get -y install bsdtar
+    sudo apt-get -y install libarchive-tools
     sudo apt-get -y install make
 
 build: off
@@ -25,5 +25,5 @@ test_script:
   - berks install
   - chef exec rspec --fail-fast -fd
   - which bsdtar || echo bsdtar not found
-  - ls -al /usr/bin | grep bsdtar
+  - ls -al /usr/bin | grep bsdtar || echo bsdtar not present
   - KITCHEN_YAML="kitchen.appveyor.yml" kitchen test --no-color --destroy=always
