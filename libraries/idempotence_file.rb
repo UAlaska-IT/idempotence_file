@@ -18,7 +18,7 @@ module IdempotenceFile
       directory I_DIRECTORY do
         owner 'root'
         group 'root'
-        mode 0o755
+        mode '755'
         recursive true
       end
     end
@@ -29,7 +29,7 @@ module IdempotenceFile
         content 'Sentinel file'
         owner 'root'
         group 'root'
-        mode 0o644
+        mode '644'
       end
     end
 
@@ -41,6 +41,5 @@ module IdempotenceFile
   end
 end
 
-Chef::Provider.include(IdempotenceFile::Public)
-Chef::Recipe.include(IdempotenceFile::Public)
+Chef::DSL::Recipe.include(IdempotenceFile::Public)
 Chef::Resource.include(IdempotenceFile::Public)
