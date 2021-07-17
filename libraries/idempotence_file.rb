@@ -42,5 +42,4 @@ module IdempotenceFile
 end
 
 Chef::DSL::Recipe.include(IdempotenceFile::Public)
-Chef::DSL::Recipe.include(IdempotenceFile::Public)
 Chef::Resource.include(IdempotenceFile::Public)
