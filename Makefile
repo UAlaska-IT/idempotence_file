@@ -3,6 +3,8 @@ SHELL := /bin/bash
 
 lint:
 	chef exec rubocop -A
+	cookstyle -A .
+	cookstyle -A test/fixtures/cookbooks/test_harness
 	chef exec rubocop
 	cookstyle .
 	cookstyle test/fixtures/cookbooks/test_harness
