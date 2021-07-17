@@ -2,6 +2,11 @@ image:  Ubuntu1804
 
 install:
   - |
+    sudo apt-get update
+    sudo apt-get -y upgrade
+    sudo apt-get -y install libarchive-tools
+    sudo apt-get -y install make
+  - |
     chef_version='21.5.462'
     chef_url="https://packages.chef.io/files/stable/chef-workstation/${chef_version}/ubuntu/18.04/chef-workstation_${chef_version}-1_amd64.deb"
     chef_file='chef.deb'
@@ -13,9 +18,6 @@ install:
     vagrant_file='vagrant.zip'
     wget "${vagrant_url}" -O "${vagrant_file}"
     sudo unzip -d /usr/local/bin "${vagrant_file}"
-  - |
-    sudo apt-get -y install libarchive-tools
-    sudo apt-get -y install make
 
 build: off
 
