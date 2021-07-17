@@ -62,7 +62,6 @@ Platforms validated via Test Kitchen:
 * Debian
 * CentOS
 * Oracle
-* Fedora
 * Amazon
 * Suse
 
